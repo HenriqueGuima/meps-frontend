@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -11,6 +10,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+@font-face {
+  font-family: "Sunflower";
+  src: local("Sunflower"),
+    url(../src/assets/fonts/Sunflower.otf) format("opentype");
 }
 
 .App-header {
@@ -35,4 +40,101 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* path {
+  fill: transparent;
+} */
+
+/* ICON LINGUAGEM */
+/* button > span > svg > path {
+  fill: white;
+} */
+
+/* ICON PESQUISA */
+/* div > div > div > div > div > svg > path {
+  fill: white;
+} */
+
+/* text {
+  fill: #000000;
+} */
+
+#text-path-path {
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+#text-path-path-bottom {
+  fill: white;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+#carrossel {
+  width: 100%;
+}
+
+/* NAVBAR */
+
+#navbar {
+  display: flex;
+}
+
+#navbar-item {
+  transition: cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+#navbar-item:hover {
+  color: #990000;
+  font-size: 17px;
+}
+
+@media only screen and (max-width: 600px) {
+  #navbar {
+    display: none;
+  }
+}
+
+/* MOBILE MENU */
+#menu-button-menu-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #menu-button-menu-mobile {
+    display: block;
+  }
+}
+
+.css-1q6goyk {
+  background: transparent !important;
+}
+
+.css-1q6goyk:hover {
+  background: #01214a !important;
+}
+
+.css-1q6goyk:active,
+.css-1q6goyk:focus,
+.css-1q6goyk[data-active] {
+  border: none;
+  box-shadow: unset !important;
+  background: #01214a !important;
+}
+
+/* PRATOS */
+
+#prato {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+#prato:hover {
+  transform: scale(1.05);
+}
+
+.icon-styles {
+  font-size: 4.55rem;
 }

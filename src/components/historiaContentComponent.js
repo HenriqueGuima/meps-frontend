@@ -7,7 +7,7 @@ import {
   Spacer,
 } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import historia from "../assets/images/2-historia.png";
 import origem from "../assets/images/3-origem.png";
 import ProductSliderComponent from "./productSliderComponent";
@@ -15,8 +15,19 @@ import pratoUm from "../assets/images/pratos-10.png";
 import pratoDois from "../assets/images/pratos-11.png";
 import pratoTres from "../assets/images/pratos-12.png";
 import { InView, useInView } from "react-intersection-observer";
+import trigo from "../assets/images/trigo.png";
+import ervilhas from "../assets/images/ervilhas.png";
+import lentilhas from "../assets/images/lentilhas.png";
+import tomatinhos from "../assets/images/tomatinhos.png";
+import grao from "../assets/images/grao.png";
+import tomate from "../assets/images/tomate.png";
 
 export default function HistoriaContentComponent() {
+  const [ref, inView, entry] = useInView({ threshold: 1 });
+
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
   //MOVES TEXT ALONG THE PATH
 
   useEffect(() => {
@@ -47,7 +58,11 @@ export default function HistoriaContentComponent() {
     });
   }, []);
 
-  const [ref, inView, entry] = useInView({ threshold: 1 });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
@@ -160,6 +175,14 @@ export default function HistoriaContentComponent() {
         )}
       </InView>
 
+      <Box>
+        <Image
+          src={trigo}
+          className="trigo"
+          style={{ transform: `translateY(${offsetY * 0.05}px)` }}
+        />
+      </Box>
+
       {/* DO CAMPO PARA A MESA */}
       <Box bg="#021E43" w="100%" mt="5em" pt="2.5em">
         <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
@@ -212,6 +235,14 @@ export default function HistoriaContentComponent() {
             </Box>
           )}
         </InView>
+      </Box>
+
+      <Box>
+        <Image
+          src={ervilhas}
+          className="ervilhas"
+          style={{ transform: `translateY(${offsetY * 0.07}px)` }}
+        />
       </Box>
 
       {/* A DIVERSIDADE EM MARCA */}
@@ -279,11 +310,34 @@ export default function HistoriaContentComponent() {
             </text>
           </svg>
         </Box>
+
+        <Box>
+          <Image
+            src={tomate}
+            className="tomate"
+            style={{ transform: `translateY(${offsetY * 0.03}px)` }}
+          />
+        </Box>
+
+        <Box>
+          <Image
+            src={lentilhas}
+            className="lentilhas"
+            style={{ transform: `translateY(${offsetY * 0.07}px)` }}
+          />
+        </Box>
         {/* PRATOS */}
 
         <Flex mt="2.5em">
           <Spacer />
           <Center>
+            <Box>
+              <Image
+                src={tomatinhos}
+                className="tomatinhos"
+                style={{ transform: `translateY(${offsetY * 0.07}px)` }}
+              />
+            </Box>
             <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
               {({ inView, ref, entry }) => (
                 <Image
@@ -312,6 +366,20 @@ export default function HistoriaContentComponent() {
           </Center>{" "}
           <Spacer />
           <Center>
+            <Box>
+              <Image
+                src={grao}
+                className="grao"
+                style={{ transform: `translateY(${offsetY * 0.07}px)` }}
+              />
+            </Box>
+            <Box>
+              <Image
+                src={grao}
+                className="grao2"
+                style={{ transform: `translateY(${offsetY * 0.04}px)` }}
+              />
+            </Box>
             <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
               {({ inView, ref, entry }) => (
                 <Image

@@ -165,11 +165,11 @@
 @keyframes fade {
   0% {
     opacity: 0;
-    margin-top: 30em;
+    /* margin-top: 30em; */
   }
   100% {
     opacity: 1;
-    margin-top: 0em;
+    /* margin-top: 0em; */
   }
 }
 
@@ -184,7 +184,7 @@
 
 .css-gmuwbf {
   opacity: 1;
-  margin-top: 0em;
+  /* margin-top: 0em; */
   animation-name: fade;
   animation-duration: 2.5s;
 }
@@ -208,7 +208,7 @@
 
 .content-hidden {
   opacity: 0;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 /* CARROSSEL */
@@ -300,4 +300,34 @@ figure:hover .inText {
   font-weight: 500;
   left: 40%;
   top: 35%;
+}
+
+/* TYPEWRITER */
+
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(163, 163, 163, 0);
+  }
 }

@@ -16,6 +16,7 @@ export default function HeroComponent(props) {
             color="#021E43"
             fontWeight="regular"
             fontFamily="Sunflower"
+            className="typewriter"
           >
             {props.title}
           </Text>

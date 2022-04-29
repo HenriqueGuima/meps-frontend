@@ -14,6 +14,7 @@ import ProductSliderComponent from "./productSliderComponent";
 import pratoUm from "../assets/images/pratos-10.png";
 import pratoDois from "../assets/images/pratos-11.png";
 import pratoTres from "../assets/images/pratos-12.png";
+import { InView, useInView } from "react-intersection-observer";
 
 export default function HistoriaContentComponent() {
   //MOVES TEXT ALONG THE PATH
@@ -28,7 +29,7 @@ export default function HistoriaContentComponent() {
     document.addEventListener("scroll", (e) => {
       let percent =
         ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
-      textPath.setAttribute("startOffset", -percent * 40 + 700);
+      textPath.setAttribute("startOffset", -percent * 40 + 250);
     });
   }, []);
 
@@ -45,6 +46,8 @@ export default function HistoriaContentComponent() {
       textPath.setAttribute("startOffset", -percent * 40 + 2500);
     });
   }, []);
+
+  const [ref, inView, entry] = useInView({ threshold: 0 });
 
   return (
     <div>
@@ -78,24 +81,31 @@ export default function HistoriaContentComponent() {
       <Box>
         <Flex>
           <Spacer />
-          <Container
-            fontSize="2xl"
-            noOfLines={[1, 2, 3]}
-            fontFamily="Montserrat, sans-serif"
-          >
-            <Heading>A NOSSA HISTÓRIA</Heading>
-            <Box mt="1em">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse consequat vestibulum odio. Donec felis tellus,
-              bibendum nec cursus vitae, varius ut lacus. Sed mattis nibh vitae
-              dui placerat, sed egestas sapien gravida. Suspendisse vitae libero
-              velit. Aenean ullamcorper fringilla nunc, vitae scelerisque nibh
-              lacinia et. Mauris eget magna quis nisl iaculis vestibulum eget ac
-              dolor. Aliquam interdum tincidunt lectus, in tincidunt orci
-              laoreet ut. Pellentesque orci odio, scelerisque eget augue in,
-              ultrices rhoncus nibh. Donec ac fermentum arcu.
-            </Box>
-          </Container>
+          <InView>
+            {({ inView, ref, entry }) => (
+              <Container
+                fontSize="2xl"
+                noOfLines={[1, 2, 3]}
+                fontFamily="Montserrat, sans-serif"
+                ref={ref}
+                id="content-historia"
+              >
+                <Heading>{`A NOSSA HISTÓRIA ${inView}.`}</Heading>
+                <Box mt="1em">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse consequat vestibulum odio. Donec felis tellus,
+                  bibendum nec cursus vitae, varius ut lacus. Sed mattis nibh
+                  vitae dui placerat, sed egestas sapien gravida. Suspendisse
+                  vitae libero velit. Aenean ullamcorper fringilla nunc, vitae
+                  scelerisque nibh lacinia et. Mauris eget magna quis nisl
+                  iaculis vestibulum eget ac dolor. Aliquam interdum tincidunt
+                  lectus, in tincidunt orci laoreet ut. Pellentesque orci odio,
+                  scelerisque eget augue in, ultrices rhoncus nibh. Donec ac
+                  fermentum arcu.
+                </Box>
+              </Container>
+            )}
+          </InView>
           <Box w="7em" />
           <Container>
             <Image src={historia} />

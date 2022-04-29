@@ -43,6 +43,7 @@ export default function NavComponent() {
           </MenuItem>
         </MenuList>
       </Menu>
+
       <Flex position="absolute" zIndex={2} width="100%" mt="3em" id="navbar">
         <Spacer />
         <Center

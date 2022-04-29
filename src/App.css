@@ -79,6 +79,8 @@
 
 #navbar {
   display: flex;
+  animation-name: fade-text;
+  animation-duration: 4s;
 }
 
 #navbar-item {
@@ -137,4 +139,44 @@
 
 .icon-styles {
   font-size: 4.55rem;
+}
+
+/* ANIMAÇOES HOMEPAGE */
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    margin-top: 30em;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0em;
+  }
+}
+
+@keyframes fade-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.css-gmuwbf {
+  opacity: 1;
+  margin-top: 0em;
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+
+.css-1eo422n {
+  opacity: 1;
+  animation-name: fade-text;
+  animation-duration: 2.5s;
+}
+
+#content-historia {
+  animation-name: fade-text;
+  animation-duration: 2.5s;
 }

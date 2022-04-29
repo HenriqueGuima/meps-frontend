@@ -262,3 +262,42 @@
   margin-inline: 0em;
   transition: cubic-bezier(0.4, 0, 1, 1) 1.5s;
 }
+
+/* PRODUTOS */
+
+.tipo-produtos {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.tipo-produtos:hover {
+  transform: scale(1.02);
+}
+
+.hover12 figure {
+  background: #000000;
+  text-align: center;
+  position: relative;
+}
+.hover12 figure #produto-img {
+  opacity: 1;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.hover12 figure:hover #produto-img {
+  opacity: 0.5;
+}
+
+figure:hover .inText {
+  color: white;
+}
+
+.inText {
+  position: absolute;
+  z-index: 2;
+  color: transparent;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-weight: 500;
+  left: 40%;
+  top: 35%;
+}

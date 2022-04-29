@@ -12,6 +12,7 @@ export default function HistoriaPage() {
       <HeroComponent
         title="Uma nova cara... a qualidade de sempre!"
         slide={SlideDataHistoria}
+        logo={true}
       />
       <HistoriaContentComponent />
       <FooterComponent />

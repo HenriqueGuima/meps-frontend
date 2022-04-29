@@ -11,16 +11,25 @@ export default function HeroComponent(props) {
         <ImageSlider slides={props.slide} />
         <Box position="absolute">
           <Text
-            fontSize="6xl"
+            fontSize="7xl"
             textAlign="center"
             color="#021E43"
-            fontWeight="bold"
+            fontWeight="regular"
             fontFamily="Sunflower"
           >
             {props.title}
           </Text>
           <Center>
-            <Image src={sticker} h="40em" />
+            <Text
+              fontSize="3xl"
+              textAlign="center"
+              color="#021E43"
+              fontWeight="bold"
+              fontFamily="Montserrat"
+            >
+              {props.secondTitle}
+            </Text>
+            {props.logo ? <Image src={sticker} h="40em" /> : null}
           </Center>
         </Box>
       </Center>

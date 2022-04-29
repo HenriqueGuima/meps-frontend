@@ -8,46 +8,67 @@ import {
 } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import React from "react";
+import { InView, useInView } from "react-intersection-observer";
 import logoVertical from "../assets/images/Logo_MEPS_vertical.png";
 
 export default function FooterComponent() {
+  const [ref, inView, entry] = useInView({ threshold: 1 });
+
   return (
     <div>
       <Box>
         {/* FOOTER LINKS */}
-        <Flex mt="2.5em">
-          <Spacer />
-          <Center>
-            <Box fontFamily="Montserrat, sans-serif">
-              <Heading fontFamily="Sunflower" fontWeight="200" color="#021e43">
-                Produtos
-              </Heading>
-              Frutos Secos <br />
-              Legumes Secos <br />
-              Legumes Cozidos <br />
-              Fruta em calda
-            </Box>{" "}
-          </Center>
-          <Spacer />
-          <Box>
-            <Image src={logoVertical} w="30pc" />
-          </Box>
-          <Spacer />
-          <Center>
-            <Box>
-              <Heading fontFamily="Sunflower" fontWeight="200" color="#021e43">
-                Contactos
-              </Heading>
-              Rua Taltal nº123 <br />
-              meps@gmail.com
-              <br />
-              Legumes cozidos <br />
-              Fruta em calda
-            </Box>{" "}
-          </Center>
+        <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
+          {({ inView, ref, entry }) => (
+            <Flex mt="2.5em" ref={ref}>
+              <Spacer />
+              <Center>
+                <Box fontFamily="Montserrat, sans-serif">
+                  <Heading
+                    fontFamily="Sunflower"
+                    fontWeight="200"
+                    color="#021e43"
+                  >
+                    Produtos
+                  </Heading>
+                  Frutos Secos <br />
+                  Legumes Secos <br />
+                  Legumes Cozidos <br />
+                  Fruta em calda
+                </Box>
+              </Center>
+              <Spacer />
+              <Box>
+                <Image
+                  src={logoVertical}
+                  w="30pc"
+                  className={
+                    inView ? "content-footer" : "content-footer-hidden"
+                  }
+                />
+              </Box>
+              <Spacer />
+              <Center>
+                <Box>
+                  <Heading
+                    fontFamily="Sunflower"
+                    fontWeight="200"
+                    color="#021e43"
+                  >
+                    Contactos
+                  </Heading>
+                  Rua Taltal nº123 <br />
+                  meps@gmail.com
+                  <br />
+                  Legumes cozidos <br />
+                  Fruta em calda
+                </Box>{" "}
+              </Center>
 
-          <Spacer />
-        </Flex>
+              <Spacer />
+            </Flex>
+          )}
+        </InView>
 
         {/* REDES SOCIAIS */}
 

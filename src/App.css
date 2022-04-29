@@ -1,6 +1,25 @@
 .App {
+  overflow-y: hidden;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #082f63;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #021e43;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -130,7 +149,7 @@
 /* PRATOS */
 
 #prato {
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  transition: ease-out 0.5s;
 }
 
 #prato:hover {
@@ -179,4 +198,67 @@
 #content-historia {
   animation-name: fade-text;
   animation-duration: 2.5s;
+}
+
+.content {
+  opacity: 1;
+  transform: scale(1);
+  transition: cubic-bezier(0.4, 0, 1, 1) 1s;
+}
+
+.content-hidden {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* CARROSSEL */
+
+.react-multi-carousel-item {
+  transition: ease-in-out 0.5s;
+}
+
+.react-multi-carousel-item:hover {
+  transform: scale(1.05);
+}
+
+/* DROPDOWN */
+
+.css-r6z5ec {
+  z-index: 5 !important;
+}
+
+/* PRATOS */
+
+.content-prato1 {
+  opacity: 1;
+  animation-delay: 1s;
+  transform: scale(1);
+  transition: cubic-bezier(0.4, 0, 1, 1) 5s;
+}
+
+.content-prato2 {
+  opacity: 1;
+  animation-delay: 0.2s;
+  transform: scale(1);
+  transition: cubic-bezier(0.4, 0, 1, 1) 7s;
+}
+
+.content-prato3 {
+  opacity: 1;
+  animation-delay: 1.5s;
+  transform: scale(1);
+  transition: cubic-bezier(0.4, 0, 1, 1) 2s;
+}
+
+/* FOOTER */
+
+.content-footer-hidden {
+  opacity: 0;
+  margin-inline: 40em;
+}
+
+.content-footer {
+  opacity: 1;
+  margin-inline: 0em;
+  transition: cubic-bezier(0.4, 0, 1, 1) 1.5s;
 }

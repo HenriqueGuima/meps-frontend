@@ -186,8 +186,8 @@
 
 .rotativo {
   position: absolute;
-  left: 110em;
-  top: 87em;
+  left: 90em;
+  top: 80em;
   width: 12em;
   z-index: 5;
 }

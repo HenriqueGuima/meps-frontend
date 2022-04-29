@@ -287,6 +287,9 @@
   transition: cubic-bezier(0.4, 0, 1, 1) 1.5s;
 }
 
+.icon-styles {
+  font-size: 2.5rem;
+}
 /* PRODUTOS */
 
 .tipo-produtos {

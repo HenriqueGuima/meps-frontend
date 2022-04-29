@@ -28,7 +28,7 @@ export default function HistoriaContentComponent() {
       sh = "scrollHeight";
     document.addEventListener("scroll", (e) => {
       let percent =
-        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 200;
       textPath.setAttribute("startOffset", -percent * 40 + 250);
     });
   }, []);
@@ -42,7 +42,7 @@ export default function HistoriaContentComponent() {
       sh = "scrollHeight";
     document.addEventListener("scroll", (e) => {
       let percent =
-        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 120;
       textPath.setAttribute("startOffset", -percent * 40 + 2500);
     });
   }, []);
@@ -51,29 +51,73 @@ export default function HistoriaContentComponent() {
 
   return (
     <div>
-      <Box w="100%">
+      <Box w="100%" className="ondas">
         <svg
           id="Camada_1"
           data-name="Camada 1"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="170 120 1361.01 195.01"
+          viewBox="20 120 1950.93 326.31"
+          // style={{
+          //   transform: "scaleY(-1)",
+          // }}
         >
           <defs></defs>
           <path
             class="cls-1"
             id="text-path"
-            d="M0,269.94l113.55-28.45c6.34-1.59,56.63-14,63.07-15.14,61.51-11.12,391.1-68.74,555.6-56.94,50.73,3.64,104.29,10.82,161,18.43,153.65,20.61,343.39,46.07,633.33,25.5a445.36,445.36,0,0,0,111-22c18.53-6.25,37.62-14.07,53.51-23.53"
+            d="M0,124.81c2.8,6.06,502.31,99.94,741.14,91.15,323-11.89,741.13-148.62,1209.79-79.26"
             // stroke="#00f"
             stroke-width="1px"
-            fill="white"
+            fill="transparent"
+            style={{
+              transform: "translateY(95px)",
+            }}
           />
           <text x="100%">
             <textPath
               href="#text-path"
               id="text-path-path"
               fontFamily="Sunflower"
+              fill="white"
             >
               Desde 1960 consigo...
+            </textPath>
+          </text>
+        </svg>
+      </Box>
+      {/* ROTATING TEXT */}
+      <Box className="rotativo">
+        <svg viewBox="0 0 500 500" style={{ width: "100%" }}>
+          <title>Uma frase que não sei</title>
+          <defs>
+            <path
+              d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
+              id="textcircle"
+            >
+              <animateTransform
+                attributeName="transform"
+                begin="0s"
+                dur="30s"
+                type="rotate"
+                from="0 250 250"
+                to="360 250 250"
+                repeatCount="indefinite"
+              />
+            </path>
+          </defs>
+          <text dy="15" textLength="1270">
+            <textPath
+              href="#textcircle"
+              style={{
+                fontSize: "63px",
+                fontFamily: "sans-serif",
+                textTransform: "uppercase",
+                letterSpacing: "20px",
+                fill: "#111",
+                background: "#333",
+              }}
+            >
+              uma frase que não sei neste momento •
             </textPath>
           </text>
         </svg>
@@ -92,7 +136,7 @@ export default function HistoriaContentComponent() {
                 ref={ref}
                 id="content"
               >
-                <Heading>A NOSSA HISTÓRIA</Heading>
+                <Heading fontSize="1.8rem">A NOSSA HISTÓRIA</Heading>
                 <Box mt="1em">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse consequat vestibulum odio. Donec felis tellus,
@@ -126,7 +170,7 @@ export default function HistoriaContentComponent() {
                   color="white"
                   fontFamily="Sunflower"
                   fontWeight="500"
-                  fontSize="5xl"
+                  fontSize="6xl"
                 >
                   Do campo para a mesa
                 </Heading>
@@ -138,7 +182,7 @@ export default function HistoriaContentComponent() {
                   color="white"
                   fontFamily="Montserrat, sans-serif"
                 >
-                  <Heading>A ORIGEM</Heading>
+                  <Heading fontSize="1.8rem">A ORIGEM</Heading>
                   <Box mt="1em">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Suspendisse consequat vestibulum odio. Donec felis tellus,
@@ -149,7 +193,14 @@ export default function HistoriaContentComponent() {
                     iaculis vestibulum eget ac dolor. Aliquam interdum tincidunt
                     lectus, in tincidunt orci laoreet ut. Pellentesque orci
                     odio, scelerisque eget augue in, ultrices rhoncus nibh.
-                    Donec ac fermentum arcu.
+                    Donec ac fermentum arcu.{""}
+                  </Box>
+                  <Box mt="1em" mb="2.5em">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse consequat vestibulum odio. Donec felis tellus,
+                    bibendum nec cursus vitae, varius ut lacus. Sed mattis nibh
+                    vitae dui placerat, sed egestas sapien gravida. Suspendisse
+                    vitae libero velit.
                   </Box>
                 </Container>
                 <Box w="7em" />
@@ -176,7 +227,7 @@ export default function HistoriaContentComponent() {
               <Heading
                 fontFamily="Sunflower"
                 fontWeight="500"
-                fontSize="5xl"
+                fontSize="6xl"
                 color="#021e43"
               >
                 A diversidade em marca!
@@ -198,34 +249,36 @@ export default function HistoriaContentComponent() {
         pb="5em"
         fontFamily="Montserrat, sans-serif"
       >
-        <svg
-          id="Camada_1"
-          data-name="Camada 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="170 120 1361.01 195.01"
-        >
-          <defs></defs>
-          <path
-            class="cls-1"
-            id="text-path"
-            d="M0,269.94l113.55-28.45c6.34-1.59,56.63-14,63.07-15.14,61.51-11.12,391.1-68.74,555.6-56.94,50.73,3.64,104.29,10.82,161,18.43,153.65,20.61,343.39,46.07,633.33,25.5a445.36,445.36,0,0,0,111-22c18.53-6.25,37.62-14.07,53.51-23.53"
-            // stroke="#00f"
-            stroke-width="1px"
-            fill="none"
-          />
-          <text x="100%">
-            <textPath
-              href="#text-path"
-              id="text-path-path-bottom"
-              fontFamily="Sunflower"
-              fontWeight="500"
-              fontSize="5xl"
-              color="#021e43"
-            >
-              Para arregalar os olhos...
-            </textPath>
-          </text>
-        </svg>
+        <Box w="100%" className="ondas">
+          <svg
+            id="Camada_1"
+            data-name="Camada 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="20 100 1950.93 326.31"
+          >
+            <defs></defs>
+            <path
+              class="cls-1"
+              id="text-path"
+              d="M0,124.81c2.8,6.06,502.31,99.94,741.14,91.15,323-11.89,741.13-148.62,1209.79-79.26"
+              // stroke="#00f"
+              stroke-width="1px"
+              fill="transparent"
+            />
+            <text x="100%">
+              <textPath
+                href="#text-path"
+                id="text-path-path-bottom"
+                fontFamily="Sunflower"
+                fontWeight="500"
+                fontSize="5xl"
+                color="#021e43"
+              >
+                Para arregalar os olhos...
+              </textPath>
+            </text>
+          </svg>
+        </Box>
         {/* PRATOS */}
 
         <Flex mt="2.5em">
@@ -235,7 +288,7 @@ export default function HistoriaContentComponent() {
               {({ inView, ref, entry }) => (
                 <Image
                   src={pratoDois}
-                  w="400px"
+                  w="300px"
                   id="prato"
                   className={inView ? "content-prato1" : "content-hidden"}
                   ref={ref}
@@ -249,7 +302,7 @@ export default function HistoriaContentComponent() {
               {({ inView, ref, entry }) => (
                 <Image
                   src={pratoUm}
-                  w="650px"
+                  w="550px"
                   id="prato"
                   className={inView ? "content-prato3" : "content-hidden"}
                   ref={ref}
@@ -263,7 +316,7 @@ export default function HistoriaContentComponent() {
               {({ inView, ref, entry }) => (
                 <Image
                   src={pratoTres}
-                  w="380px"
+                  w="280px"
                   id="prato"
                   className={inView ? "content-prato2" : "content-hidden"}
                   ref={ref}

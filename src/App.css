@@ -182,6 +182,16 @@
   }
 }
 
+/* HISTÓRIA CONTENT */
+
+.rotativo {
+  position: absolute;
+  left: 110em;
+  top: 87em;
+  width: 12em;
+  z-index: 5;
+}
+
 .css-gmuwbf {
   opacity: 1;
   /* margin-top: 0em; */
@@ -209,6 +219,20 @@
 .content-hidden {
   opacity: 0;
   /* transform: scale(1.1); */
+}
+
+.css-8atqhb {
+  width: 100%;
+  margin-top: -10em;
+  z-index: 6;
+  position: relative;
+  /* transform: scaleY(-1); */
+}
+
+.ondas {
+  background-image: url("../src/assets/images/ondas2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* CARROSSEL */
@@ -304,6 +328,7 @@ figure:hover .inText {
 
 /* TYPEWRITER */
 
+/* MUDAR EM MODO RESPONSIVO */
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid orange; /* The typwriter cursor */

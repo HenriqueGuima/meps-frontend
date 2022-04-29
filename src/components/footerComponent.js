@@ -75,10 +75,10 @@ export default function FooterComponent() {
         <Flex mb="2.5em">
           <Spacer />
           <Center>
-            <Container w="100%">
+            <Container w="100%" fontSize="2.55rem">
               <i className="fa-brands fa-instagram icon-styles"></i>
             </Container>{" "}
-            <Container w="100%">
+            <Container w="100%" fontSize="2.55rem">
               <i class="fa-brands fa-facebook-square icon-styles"></i>
             </Container>{" "}
           </Center>

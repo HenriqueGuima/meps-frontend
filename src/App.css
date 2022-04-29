@@ -196,22 +196,22 @@
   position: absolute;
   z-index: 6;
   width: 37em;
-  top: 107em;
+  top: 96em;
 }
 
 .ervilhas {
   position: absolute;
   z-index: 6;
   width: 26em;
-  top: 149em;
-  left: 105em;
+  left: 94em;
+  top: 140em;
 }
 
 .tomate {
   position: absolute;
   z-index: 6;
   width: 17em;
-  top: 210em;
+  top: 197em;
   /* left: 90em; */
 }
 
@@ -219,32 +219,32 @@
   position: absolute;
   z-index: 6;
   width: 45em;
-  top: 196em;
-  left: 90em;
+  left: 79em;
+  top: 185em;
 }
 
 .tomatinhos {
   position: absolute;
   z-index: 0;
   width: 36em;
-  top: 231em;
-  left: 8em;
+  top: 216;
+  left: 5em;
 }
 
 .grao {
   position: absolute;
   z-index: 0;
   width: 19em;
-  top: 232em;
-  left: 94em;
+  left: 84em;
+  top: 216em;
 }
 
 .grao2 {
   position: absolute;
   z-index: 0;
   width: 19em;
-  top: 255em;
-  left: 105em;
+  left: 93em;
+  top: 236em;
 }
 
 .css-gmuwbf {

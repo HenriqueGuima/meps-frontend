@@ -1,26 +1,21 @@
-import {
-  Box,
-  Center,
-  Container,
-  Flex,
-  Heading,
-  Spacer,
-} from "@chakra-ui/layout";
+import { Box, Container, Flex, Spacer } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import React, { Suspense, useEffect, useState } from "react";
-import historia from "../assets/images/2-historia.png";
-import origem from "../assets/images/3-origem.png";
-import ProductSliderComponent from "./productSliderComponent";
-import pratoUm from "../assets/images/pratos-10.png";
-import pratoDois from "../assets/images/pratos-11.png";
-import pratoTres from "../assets/images/pratos-12.png";
 import { InView, useInView } from "react-intersection-observer";
 import OndasTopComponent from "./ondasTopComponent";
 import ApenasOndaComponent from "./apenasOndaComponent";
 import ProdutosComponent from "./produtosComponent";
+import grao from "../assets/images/grao.png";
+import lentilhas from "../assets/images/lentilhas.png";
+import tomate from "../assets/images/tomate.png";
+import trigo from "../assets/images/trigo.png";
 
 export default function ProdutosContentComponent() {
   //MOVES TEXT ALONG THE PATH
+
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+  const [ref, inView, entry] = useInView({ threshold: 1 });
 
   useEffect(() => {
     const textPath = document.querySelector("#text-path-path");
@@ -35,9 +30,6 @@ export default function ProdutosContentComponent() {
       textPath.setAttribute("startOffset", -percent * 40 + 250);
     });
   }, []);
-
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
 
   useEffect(() => {
     const textPath = document.querySelector("#text-path-path-bottom");
@@ -58,8 +50,6 @@ export default function ProdutosContentComponent() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const [ref, inView, entry] = useInView({ threshold: 1 });
 
   return (
     <div>
@@ -170,6 +160,36 @@ export default function ProdutosContentComponent() {
       <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
         {({ inView, ref, entry }) => (
           <Container className="tipoProdutosComponent">
+            <Box>
+              <Image
+                src={grao}
+                className="grao3"
+                style={{ transform: `translateY(${offsetY * 0.04}px)` }}
+              />
+              <Box>
+                <Image
+                  src={tomate}
+                  className="tomate2"
+                  style={{ transform: `translateY(${offsetY * 0.03}px)` }}
+                />
+              </Box>
+
+              <Box>
+                <Image
+                  src={lentilhas}
+                  className="lentilhas2"
+                  style={{ transform: `translateY(${offsetY * 0.07}px)` }}
+                />
+              </Box>
+
+              <Box>
+                <Image
+                  src={trigo}
+                  className="trigo2"
+                  style={{ transform: `translateY(${offsetY * 0.02}px)` }}
+                />
+              </Box>
+            </Box>
             <ProdutosComponent width="33ch" title="Leguminosas" />
             <ProdutosComponent width="23ch" title="Vegetais" />
             <ProdutosComponent width="18ch" title="Frutas" />

@@ -199,6 +199,14 @@
   top: 96em;
 }
 
+.trigo2 {
+  position: absolute;
+  z-index: 0;
+  width: 26em;
+  left: 86em;
+  top: 155em;
+}
+
 .ervilhas {
   position: absolute;
   z-index: 6;
@@ -215,12 +223,28 @@
   /* left: 90em; */
 }
 
+.tomate2 {
+  position: absolute;
+  z-index: 11;
+  width: 17em;
+  top: 184em;
+  left: 3em;
+}
+
 .lentilhas {
   position: absolute;
   z-index: 6;
   width: 45em;
   left: 79em;
   top: 183em;
+}
+
+.lentilhas2 {
+  position: absolute;
+  z-index: 6;
+  width: 45em;
+  left: 78em;
+  top: 100em;
 }
 
 .tomatinhos {
@@ -245,6 +269,14 @@
   width: 19em;
   left: 93em;
   top: 236em;
+}
+
+.grao3 {
+  position: absolute;
+  z-index: 0;
+  width: 26em;
+  left: 4em;
+  top: 135em;
 }
 
 .css-gmuwbf {

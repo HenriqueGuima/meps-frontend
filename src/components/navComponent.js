@@ -73,7 +73,9 @@ export default function NavComponent() {
           color="#021E43"
           id="navbar-item"
         >
-          <Image src={logo} alt="Logo MEPS" />
+          <Link to="/">
+            <Image src={logo} alt="Logo MEPS" />
+          </Link>
         </Center>
         <Spacer />
         <Center

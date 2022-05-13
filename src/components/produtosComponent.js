@@ -1,5 +1,6 @@
 import { Box, Container, Flex, Heading, Spacer } from "@chakra-ui/layout";
-import React from "react";
+import { Image } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { InView, useInView } from "react-intersection-observer";
 import ProductSliderComponent from "./productSliderComponent";
 

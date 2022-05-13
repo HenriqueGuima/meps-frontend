@@ -243,7 +243,10 @@ export default function ProdutosContentComponent() {
       {/* Produtos */}
       <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
         {({ inView, ref, entry }) => (
-          <Box className={inView ? "content" : "content-hidden"} ref={ref}>
+          <Box
+            className={inView ? "content-produtos" : "content-hidden"}
+            ref={ref}
+          >
             <Flex>
               <Spacer />
               <Box w="7em" />

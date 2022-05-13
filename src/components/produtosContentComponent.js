@@ -7,7 +7,7 @@ import {
   Spacer,
 } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import historia from "../assets/images/2-historia.png";
 import origem from "../assets/images/3-origem.png";
 import ProductSliderComponent from "./productSliderComponent";
@@ -15,6 +15,9 @@ import pratoUm from "../assets/images/pratos-10.png";
 import pratoDois from "../assets/images/pratos-11.png";
 import pratoTres from "../assets/images/pratos-12.png";
 import { InView, useInView } from "react-intersection-observer";
+import OndasTopComponent from "./ondasTopComponent";
+import ApenasOndaComponent from "./apenasOndaComponent";
+import ProdutosComponent from "./produtosComponent";
 
 export default function ProdutosContentComponent() {
   //MOVES TEXT ALONG THE PATH
@@ -33,6 +36,9 @@ export default function ProdutosContentComponent() {
     });
   }, []);
 
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
   useEffect(() => {
     const textPath = document.querySelector("#text-path-path-bottom");
     console.log(textPath);
@@ -42,16 +48,22 @@ export default function ProdutosContentComponent() {
       sh = "scrollHeight";
     document.addEventListener("scroll", (e) => {
       let percent =
-        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
-      textPath.setAttribute("startOffset", -percent * 40 + 2500);
+        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 120;
+      textPath.setAttribute("startOffset", -percent * 40 + 3000);
     });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const [ref, inView, entry] = useInView({ threshold: 1 });
 
   return (
     <div>
-      <Box w="100%">
+      {/* <Box w="100%">
         <svg
           id="Camada_1"
           data-name="Camada 1"
@@ -77,9 +89,22 @@ export default function ProdutosContentComponent() {
             </textPath>
           </text>
         </svg>
-      </Box>
+      </Box> */}
 
-      {/* HISTORIA */}
+      {/* ONDA */}
+      <InView>
+        {({ inView, ref, entry }) => (
+          <Suspense fallback={<div>LOADING...</div>}>
+            {inView ? (
+              <div></div>
+            ) : (
+              <OndasTopComponent frase="A qualidade embalada..." ref={ref} />
+            )}
+          </Suspense>
+        )}
+      </InView>
+
+      {/* Produtos */}
       <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
         {({ inView, ref, entry }) => (
           <Box className={inView ? "content" : "content-hidden"} ref={ref}>
@@ -125,188 +150,128 @@ export default function ProdutosContentComponent() {
                   <Box w="7em" />
                 </Flex>
               </div>
-              {/* <Container>
-                <Image src={historia} className="tipo-produtos" />
-              </Container>{" "}
-              <Spacer />
-              <Box w="7em" />
-              <Container>
-                <Image src={historia} className="tipo-produtos" />
-              </Container>{" "}
-              <Spacer />
-              <Box w="7em" />
-              <Container>
-                <Image src={historia} className="tipo-produtos" />
-              </Container>{" "}
-              <Spacer />
-              <Box w="7em" />
-              <Container>
-                <Image src={historia} className="tipo-produtos" />
-              </Container>{" "} */}
+
               <Spacer />
             </Flex>
           </Box>
         )}
       </InView>
 
-      {/* DO CAMPO PARA A MESA */}
-      <Box bg="#021E43" w="100%" mt="5em" pt="2.5em">
-        <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
-          {({ inView, ref, entry }) => (
-            <Box className={inView ? "content" : "content-hidden"} ref={ref}>
-              <Center>
-                <Heading
-                  color="white"
-                  fontFamily="Sunflower"
-                  fontWeight="500"
-                  fontSize="5xl"
-                >
-                  Do campo para a mesa
-                </Heading>
-              </Center>
-              <Flex mt="2.5em">
-                <Spacer />
-                <Container
-                  fontSize="2xl"
-                  color="white"
-                  fontFamily="Montserrat, sans-serif"
-                >
-                  <Heading>A ORIGEM</Heading>
-                  <Box mt="1em">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse consequat vestibulum odio. Donec felis tellus,
-                    bibendum nec cursus vitae, varius ut lacus. Sed mattis nibh
-                    vitae dui placerat, sed egestas sapien gravida. Suspendisse
-                    vitae libero velit. Aenean ullamcorper fringilla nunc, vitae
-                    scelerisque nibh lacinia et. Mauris eget magna quis nisl
-                    iaculis vestibulum eget ac dolor. Aliquam interdum tincidunt
-                    lectus, in tincidunt orci laoreet ut. Pellentesque orci
-                    odio, scelerisque eget augue in, ultrices rhoncus nibh.
-                    Donec ac fermentum arcu.
-                  </Box>
-                </Container>
-                <Box w="7em" />
-                <Container>
-                  <Image src={origem} />
-                </Container>{" "}
-                <Spacer />
-              </Flex>
-            </Box>
-          )}
-        </InView>
-      </Box>
+      {/* ONDA */}
+      <InView>
+        {({ inView, ref, entry }) => (
+          <Suspense fallback={<div>LOADING...</div>}>
+            {inView ? <div></div> : <ApenasOndaComponent ref={ref} />}
+          </Suspense>
+        )}
+      </InView>
 
-      {/* A DIVERSIDADE EM MARCA */}
+      {/* Produtos */}
       <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
         {({ inView, ref, entry }) => (
-          <Box
-            pt="2.5em"
-            fontFamily="Montserrat, sans-serif"
-            className={inView ? "content" : "content-hidden"}
-            ref={ref}
-          >
-            <Center>
-              <Heading
-                fontFamily="Sunflower"
-                fontWeight="500"
-                fontSize="5xl"
-                color="#021e43"
-              >
-                A diversidade em marca!
-              </Heading>
-            </Center>
-            <Flex mt="2.5em">
+          <Container className="tipoProdutosComponent">
+            <ProdutosComponent width="33ch" title="Leguminosas" />
+            <ProdutosComponent width="23ch" title="Vegetais" />
+            <ProdutosComponent width="18ch" title="Frutas" />
+            <ProdutosComponent width="28ch" title="Preparados" />
+          </Container>
+        )}
+      </InView>
+
+      {/* ONDA */}
+      <InView>
+        {({ inView, ref, entry }) => (
+          <Suspense fallback={<div>LOADING...</div>}>
+            {inView ? (
+              <div></div>
+            ) : (
+              <Box w="100%" className="ondas" mt="10">
+                <svg
+                  id="Camada_1"
+                  data-name="Camada 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="20 100 1950.93 326.31"
+                >
+                  <defs></defs>
+                  <path
+                    class="cls-1"
+                    id="text-path"
+                    d="M0,124.81c2.8,6.06,502.31,99.94,741.14,91.15,323-11.89,741.13-148.62,1209.79-79.26"
+                    // stroke="#00f"
+                    stroke-width="1px"
+                    fill="transparent"
+                  />
+                  <text x="100%">
+                    <textPath
+                      href="#text-path"
+                      id="text-path-path-bottom"
+                      fontFamily="Sunflower"
+                      fontWeight="500"
+                      fontSize="5xl"
+                      color="#021e43"
+                    >
+                      Receitas Deliciosas...
+                    </textPath>
+                  </text>
+                </svg>
+              </Box>
+            )}
+          </Suspense>
+        )}
+      </InView>
+
+      {/* Produtos */}
+      <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
+        {({ inView, ref, entry }) => (
+          <Box className={inView ? "content" : "content-hidden"} ref={ref}>
+            <Flex>
               <Spacer />
-              <ProductSliderComponent />
+              <Box w="7em" />
+              <div class="hover12">
+                <Flex>
+                  <Spacer />
+                  <Box w="7em" />
+                  <Box>
+                    <figure>
+                      <span className="inText">Leguminosas</span>
+                      <Image
+                        src="https://picsum.photos/300/200?image=244"
+                        id="produto-img"
+                      />
+                    </figure>
+                  </Box>
+                  <Spacer />
+                  <Box w="7em" />
+                  <Box>
+                    <figure>
+                      <span className="inText">Frutas</span>
+                      <Image
+                        src="https://picsum.photos/300/200?image=1024"
+                        id="produto-img"
+                      />
+                    </figure>
+                  </Box>
+                  <Spacer />
+                  <Box w="7em" />
+                  <Box>
+                    <figure>
+                      <span className="inText">Ervilhas</span>
+                      <Image
+                        src="https://picsum.photos/300/200?image=611"
+                        id="produto-img"
+                      />
+                    </figure>
+                  </Box>
+                  <Spacer />
+                  <Box w="7em" />
+                </Flex>
+              </div>
+
               <Spacer />
             </Flex>
           </Box>
         )}
       </InView>
-      <Box
-        bg="#021E43"
-        w="100%"
-        mt="5em"
-        pt="2.5em"
-        pb="5em"
-        fontFamily="Montserrat, sans-serif"
-      >
-        <svg
-          id="Camada_1"
-          data-name="Camada 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="170 120 1361.01 195.01"
-        >
-          <defs></defs>
-          <path
-            class="cls-1"
-            id="text-path"
-            d="M0,269.94l113.55-28.45c6.34-1.59,56.63-14,63.07-15.14,61.51-11.12,391.1-68.74,555.6-56.94,50.73,3.64,104.29,10.82,161,18.43,153.65,20.61,343.39,46.07,633.33,25.5a445.36,445.36,0,0,0,111-22c18.53-6.25,37.62-14.07,53.51-23.53"
-            // stroke="#00f"
-            stroke-width="1px"
-            fill="none"
-          />
-          <text x="100%">
-            <textPath
-              href="#text-path"
-              id="text-path-path-bottom"
-              fontFamily="Sunflower"
-              fontWeight="500"
-              fontSize="5xl"
-              color="#021e43"
-            >
-              Para arregalar os olhos...
-            </textPath>
-          </text>
-        </svg>
-        {/* PRATOS */}
-
-        <Flex mt="2.5em">
-          <Spacer />
-          <Center>
-            <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
-              {({ inView, ref, entry }) => (
-                <Image
-                  src={pratoDois}
-                  w="400px"
-                  id="prato"
-                  className={inView ? "content-prato1" : "content-hidden"}
-                  ref={ref}
-                />
-              )}
-            </InView>
-          </Center>{" "}
-          <Spacer />
-          <Center>
-            <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
-              {({ inView, ref, entry }) => (
-                <Image
-                  src={pratoUm}
-                  w="650px"
-                  id="prato"
-                  className={inView ? "content-prato3" : "content-hidden"}
-                  ref={ref}
-                />
-              )}
-            </InView>
-          </Center>{" "}
-          <Spacer />
-          <Center>
-            <InView rootMargin="100px 0px -100px 0px" triggerOnce={true}>
-              {({ inView, ref, entry }) => (
-                <Image
-                  src={pratoTres}
-                  w="380px"
-                  id="prato"
-                  className={inView ? "content-prato2" : "content-hidden"}
-                  ref={ref}
-                />
-              )}
-            </InView>
-          </Center>{" "}
-          <Spacer />
-        </Flex>
-      </Box>
     </div>
   );
 }

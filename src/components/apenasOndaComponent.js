@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/layout";
 import React, { useEffect } from "react";
 
-export default function OndasTopComponent(props) {
+export default function ApenasOndaComponent() {
   //MOVES TEXT ALONG THE PATH
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function OndasTopComponent(props) {
   }, []);
 
   return (
-    <Box w="100%" className="ondas">
+    <Box w="100%" className="ondasDois">
       <svg
         id="Camada_1"
         data-name="Camada 1"
@@ -41,16 +41,6 @@ export default function OndasTopComponent(props) {
             transform: "translateY(95px)",
           }}
         />
-        <text x="100%">
-          <textPath
-            href="#text-path"
-            id="text-path-path"
-            fontFamily="Sunflower"
-            fill="white"
-          >
-            {props.frase}
-          </textPath>
-        </text>
       </svg>
     </Box>
   );

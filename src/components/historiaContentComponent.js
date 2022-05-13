@@ -44,7 +44,11 @@ export default function HistoriaContentComponent() {
       <InView>
         {({ inView, ref, entry }) => (
           <Suspense fallback={<div>LOADING...</div>}>
-            {!inView ? <OndasTopComponent ref={ref} /> : null}
+            {inView ? (
+              <div></div>
+            ) : (
+              <OndasTopComponent frase="Desde 1960 consigo..." ref={ref} />
+            )}
           </Suspense>
         )}
       </InView>

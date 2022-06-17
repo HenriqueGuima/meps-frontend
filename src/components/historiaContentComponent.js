@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Container } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { InView, useInView } from "react-intersection-observer";
@@ -43,7 +43,7 @@ export default function HistoriaContentComponent() {
       {/* ONDA */}
       <InView>
         {({ inView, ref, entry }) => (
-          <Suspense fallback={<div>LOADING...</div>}>
+          <Suspense fallback={<Container>LOADING...</Container>}>
             {inView ? (
               <div></div>
             ) : (
@@ -59,7 +59,7 @@ export default function HistoriaContentComponent() {
       </Suspense>
 
       {/* HISTORIA */}
-      <Suspense fallback={<div>LOADING...</div>}>
+      <Suspense fallback={<Container h="800">LOADING CONTAINER...</Container>}>
         <HistoriaComponent />
       </Suspense>
 
